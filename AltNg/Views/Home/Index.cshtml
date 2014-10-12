@@ -1,0 +1,31 @@
+﻿@using AltNg.HtmlExtensions
+@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html data-ng-app="alt.testapp">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Html.MinimizedStylesheet("~/content/bootstrap.css")
+    @Html.MinimizedStylesheet("~/content/alt.testapp.css", DateTime.Now.ToFileTimeUtc().ToString())
+</head>
+    <body class="container-fluid">
+        <header>
+            CLICKABLE MENU HERE - VIA UI-BOOTSTRAP ? OR DO I HAVE TO WRITE IT ?
+            <br/>
+            IF ME, THEN SEPARATE MODULE THAT COMPLEMENTS UI-BOOTSTRAP ONLY<br/>
+            Or is there a directive already?? http://stackoverflow.com/questions/16268606/responsive-dropdown-navbar-with-angular-ui-bootstrap-done-in-the-correct-angula
+        </header>
+        <section id="main" data-alt-view>
+         
+        </section>
+        @Html.MinimizedScript("~/scripts/angular.js")
+        @Html.MinimizedScript("~/scripts/angular-ui/ui-bootstrap-tpls.js")
+        @Html.MinimizedScript("~/alt/modules/alt.route.js", DateTime.Now.ToFileTimeUtc().ToString())
+        @Html.MinimizedScript("~/alt/alt.testapp.js", DateTime.Now.ToFileTimeUtc().ToString())
+    </body>
+</html>
