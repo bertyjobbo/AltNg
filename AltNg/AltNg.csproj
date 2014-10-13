@@ -85,6 +85,9 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="alt\alt.croute.min.js">
+      <DependentUpon>alt.croute.js</DependentUpon>
+    </Content>
     <Content Include="Content\alt.testapp.min.css">
       <DependentUpon>alt.testapp.css</DependentUpon>
     </Content>
@@ -108,6 +111,11 @@
     <Content Include="Views\AltCView\Index.cshtml" />
     <Content Include="Views\AltCView\NgView\Home\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="alt\alt.croute.js" />
+    <Content Include="alt\alt.croute.min.js.map">
+      <DependentUpon>alt.croute.min.js</DependentUpon>
+    </Content>
+    <Content Include="Views\AltCView\Scripts\alt.altcviewapp.js" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -157,9 +165,7 @@
     <Compile Include="HtmlExtensions\IncludeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="alt\modules\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
