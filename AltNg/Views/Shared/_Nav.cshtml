@@ -1,0 +1,32 @@
+﻿@using System.Web.Mvc.Html
+@inherits System.Web.Mvc.WebViewPage
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" 
+                    class="navbar-toggle collapsed" 
+                    data-ng-init="navCollapsed = true" 
+                    ng-click="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="@Url.Action("Index","Home")">@ViewBag.Title</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" data-ng-class="{'in':!navCollapsed}">
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("home", "Index", "Home")</li>
+                <li>@Html.ActionLink("alt-view", "Index", "AltView")</li>
+                <li>@Html.ActionLink("alt-cview", "Index", "AltCView")</li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+@*CLICKABLE MENU HERE - VIA UI-BOOTSTRAP ? OR DO I HAVE TO WRITE IT ?
+    <br/>
+    IF ME, THEN SEPARATE MODULE THAT COMPLEMENTS UI-BOOTSTRAP ONLY<br/>
+    Or is there a directive already?? http://stackoverflow.com/questions/16268606/responsive-dropdown-navbar-with-angular-ui-bootstrap-done-in-the-correct-angula*@

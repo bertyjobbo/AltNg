@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AltNg.Controllers
 {
-    public class HomeController: BaseNgController
+    public class AltCViewController:BaseNgController
     {
     }
 }

@@ -1,0 +1,27 @@
+﻿@using System.Web.Mvc.Html
+@using AltNg.HtmlExtensions
+@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html data-ng-app="@ViewBag.NgAppName">
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Html.MinimizedStylesheet("~/content/bootstrap.css")
+    @Html.MinimizedStylesheet("~/content/alt.testapp.css", DateTime.Now.ToFileTimeUtc().ToString())
+    @RenderSection("AfterStylesheets",false)
+</head>
+    <body class="container-fluid">
+        <header>
+            @Html.Partial("_Nav")
+        </header>
+        @RenderBody()
+        @Html.MinimizedScript("~/scripts/angular.js")
+        @Html.MinimizedScript("~/scripts/angular-ui/ui-bootstrap-tpls.js")
+        @RenderSection("AfterMainScripts", false)
+    </body>
+</html>

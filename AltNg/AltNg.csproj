@@ -88,21 +88,26 @@
     <Content Include="Content\alt.testapp.min.css">
       <DependentUpon>alt.testapp.css</DependentUpon>
     </Content>
-    <Content Include="alt\alt.testapp.js" />
-    <Content Include="alt\alt.testapp.min.js">
-      <DependentUpon>alt.testapp.js</DependentUpon>
+    <Content Include="Views\AltView\Scripts\alt.altviewapp.js" />
+    <Content Include="Views\AltView\Scripts\alt.testapp.min.js">
+      <DependentUpon>alt.altviewapp.js</DependentUpon>
     </Content>
-    <Content Include="alt\modules\alt.route.js" />
-    <Content Include="alt\modules\alt.route.min.js">
+    <Content Include="alt\alt.route.js" />
+    <Content Include="alt\alt.route.min.js">
       <DependentUpon>alt.route.js</DependentUpon>
     </Content>
     <Content Include="packages.config" />
-    <Content Include="alt\modules\alt.route.min.js.map">
+    <Content Include="alt\alt.route.min.js.map">
       <DependentUpon>alt.route.min.js</DependentUpon>
     </Content>
-    <Content Include="alt\alt.testapp.min.js.map">
+    <Content Include="Views\AltView\Scripts\alt.testapp.min.js.map">
       <DependentUpon>alt.testapp.min.js</DependentUpon>
     </Content>
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Nav.cshtml" />
+    <Content Include="Views\AltCView\Index.cshtml" />
+    <Content Include="Views\AltCView\NgView\Home\Index.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -138,10 +143,13 @@
     <Content Include="Scripts\jquery-1.9.0.min.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery-1.9.0.min.map" />
-    <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Home\NgView\Home\Index.cshtml" />
+    <Content Include="Views\AltView\Index.cshtml" />
+    <Content Include="Views\AltView\NgView\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\AltCViewController.cs" />
+    <Compile Include="Controllers\AltViewController.cs" />
+    <Compile Include="Controllers\BaseNgController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -149,7 +157,9 @@
     <Compile Include="HtmlExtensions\IncludeExtensions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="alt\modules\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -1,16 +1,8 @@
 ﻿'use strict';
 var alt = alt || {};
-alt.testapp = angular.module("alt.testapp", ["ng","alt.route"]);
+alt.altviewapp = angular.module("alt.altviewapp", ["ng", "alt.route"]);
 
 (function(app) {
-
-    app.config(["altRouteConfigProvider", function(altRouteConfigProvider) {
-
-        altRouteConfigProvider.setViewUrlMethod(function(c,a,p) {
-            return "/Home/NgView?c=" + c + "&a=" + a;
-        });
-
-    }]);
 
     app.run(["$rootScope", function($rootScope) {
         
@@ -44,4 +36,4 @@ alt.testapp = angular.module("alt.testapp", ["ng","alt.route"]);
 
     }]);
 
-})(alt.testapp);
+})(alt.altviewapp);

@@ -1,0 +1,14 @@
+﻿@using AltNg.HtmlExtensions
+@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.NgAppName = "alt.altviewapp";
+    ViewBag.Title = "NgAlt - alt-view";
+}
+<section id="main" 
+         data-alt-view="'@Url.Content("~/AltView/NgView")?c=' + $controller + '&amp;a=' + $action">
+</section>
+@section AfterMainScripts{
+    @Html.MinimizedScript("~/alt/alt.route.js", DateTime.Now.ToFileTimeUtc().ToString())
+    @Html.MinimizedScript("~/Views/AltView/Scripts/alt.altviewapp.js", DateTime.Now.ToFileTimeUtc().ToString())
+}

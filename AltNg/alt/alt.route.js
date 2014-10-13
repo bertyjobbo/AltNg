@@ -23,34 +23,24 @@ alt.route = angular.module("alt.route", ["ng"]);
         };
     }]);
 
-    // provider
-    app.provider("altRouteConfig", [function() {
-
-        var ts = this;
-        ts.viewCache = {};
-        ts.viewUrlMethod = function(c, a, params) {
-            return "/views/" + c + "/" + a + ".html";
-        };
-        ts.setViewUrlMethod=function(method) {
-            ts.viewUrlMethod = method;
-            return ts;
-        }
-        ts.$get = function() { return ts; }
-
-    }]);
-
     // view directive
-    app.directive("altView", ["$location", "$controller", "$compile", "$rootScope","$http", "altControllerChecker", "altRouteConfig", function ($location, $controller, $compile, $rootScope, $http, altControllerChecker, altRouteConfig) {
-        
+    app.directive("altView", ["$location", "$controller", "$compile", "$rootScope", "$http", "altControllerChecker", function ($location, $controller, $compile, $rootScope, $http, altControllerChecker) {
+
         return {
-        
+
             restrict: "A",
 
-            link:function(scope, element, attrs) {
-                
+            link: function (scope, element, attrs) {
+
                 // remove attr
                 element.removeAttr("data-alt-view");
                 element.removeAttr("alt-view");
+
+                // get expression
+                var urlExpression = attrs.altView;
+
+                // cache
+                var viewCache = {};
 
                 // check no hash
                 if ($location.$$path == "") {
@@ -58,8 +48,8 @@ alt.route = angular.module("alt.route", ["ng"]);
                 }
 
                 // now watch
-                scope.$watch(function() { return $location.$$path; }, function(newPath) {
-                    
+                scope.$watch(function () { return $location.$$path; }, function (newPath) {
+
                     // emit
                     scope.$broadcast("$routeChangeStart", newPath);
 
@@ -67,7 +57,7 @@ alt.route = angular.module("alt.route", ["ng"]);
 
                 // events
                 scope.$on("$routeChangeStart", function (e, newPath) {
-                    
+
                     // lower
                     newPath = newPath.toLowerCase();
 
@@ -86,7 +76,9 @@ alt.route = angular.module("alt.route", ["ng"]);
                     // set 
                     $location.$$route = {};
                     $location.$$route.$$routeController = splt[0] + "Controller";
+                    $location.$$route.$$routeControllerName = splt[0];
                     $location.$$route.$$routeAction = splt[1] + "Action";
+                    $location.$$route.$$routeActionName = splt[1];
                     $location.$$route.$$routeParams = [];
 
                     // check
@@ -95,7 +87,7 @@ alt.route = angular.module("alt.route", ["ng"]);
                             $location.$$route.$$routeParams.push(splt[i]);
                         }
                     }
-                    
+
 
                     // check if controller exists
                     var ctrlExist = altControllerChecker.exists($location.$$route.$$routeController);
@@ -123,13 +115,20 @@ alt.route = angular.module("alt.route", ["ng"]);
                     }
 
                     // get url
-                    var url = altRouteConfig.viewUrlMethod(splt[0], splt[1], $location.$$route.$$routeParams).toLowerCase();
+                    //var url = altRouteConfig.viewUrlMethod(splt[0], splt[1], $location.$$route.$$routeParams).toLowerCase();
+
+                    // get url
+                    var replacedUrlExpression =
+                        urlExpression
+                            .replace(/(\$controller)/g, "'" + $location.$$route.$$routeControllerName + "'")
+                            .replace(/(\$action)/g, "'" + $location.$$route.$$routeActionName + "'");
+                    var url = scope.$eval(replacedUrlExpression);
 
                     // view exists
-                    if (altRouteConfig.viewCache[url]) {
+                    if (viewCache[url]) {
 
                         // set html
-                        element.html(altRouteConfig.viewCache[url]);
+                        element.html(viewCache[url]);
 
                         // compile
                         $compile(element)(scope);
@@ -140,10 +139,10 @@ alt.route = angular.module("alt.route", ["ng"]);
                     } else {
                         $http
                             .get(url)
-                            .success(function(d) {
+                            .success(function (d) {
 
                                 // add to cache
-                                altRouteConfig.viewCache[url] = d;
+                                viewCache[url] = d;
 
                                 // set html
                                 element.html(d);
@@ -154,7 +153,7 @@ alt.route = angular.module("alt.route", ["ng"]);
                                 // end event
                                 scope.$broadcast("$routeChangeSuccess", $location.$$route);
                             })
-                            .error(function() {
+                            .error(function () {
                                 // end event
                                 scope.$broadcast("$routeChangeError", $location.$$route);
                             });
