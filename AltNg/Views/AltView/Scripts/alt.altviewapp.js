@@ -1,11 +1,13 @@
 ﻿'use strict';
 var alt = alt || {};
-alt.altviewapp = angular.module("alt.altviewapp", ["ng", "alt.route"]);
+alt.altviewapp = angular.module("alt.altviewapp", ["ng", "alt.route", "alt.ui", "ui.bootstrap"]);
 
 (function(app) {
 
     app.run(["$rootScope", function($rootScope) {
         
+        $rootScope.moduleName = "alt.altviewapp";
+
         $rootScope.$on("$routeChangeStart", function (e, startData) {
             console.log("$routeChangeStart from app  ", startData);
         });

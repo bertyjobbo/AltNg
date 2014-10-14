@@ -9,7 +9,5 @@
          data-alt-view="'@Url.Content("~/AltUi/NgView")?c=' + $controller + '&amp;a=' + $action">
 </section>
 @section AfterMainScripts{
-    @Html.MinimizedScript("~/alt/alt.ui.js", DateTime.Now.ToFileTimeUtc().ToString())
-    @Html.MinimizedScript("~/alt/alt.route.js", DateTime.Now.ToFileTimeUtc().ToString())
     @Html.MinimizedScript("~/Views/AltUi/Scripts/alt.altuiapp.js", DateTime.Now.ToFileTimeUtc().ToString())
 }

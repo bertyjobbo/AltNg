@@ -135,6 +135,9 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\AltUi\NgView\Example\Nav.cshtml" />
     <Content Include="Views\AltUi\NgView\Example\Buttons.cshtml" />
+    <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js.map">
+      <DependentUpon>ui-bootstrap-tpls.min.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

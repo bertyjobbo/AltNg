@@ -22,6 +22,8 @@
         @RenderBody()
         @Html.MinimizedScript("~/scripts/angular.js")
         @Html.MinimizedScript("~/scripts/angular-ui/ui-bootstrap-tpls.js")
+        @Html.MinimizedScript("~/alt/alt.ui.js", DateTime.Now.ToFileTimeUtc().ToString())
+        @Html.MinimizedScript("~/alt/alt.route.js", DateTime.Now.ToFileTimeUtc().ToString())
         @RenderSection("AfterMainScripts", false)
     </body>
 </html>

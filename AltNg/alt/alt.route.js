@@ -167,5 +167,31 @@ alt.route = angular.module("alt.route", ["ng"]);
 
     }]);
 
+    // alt-href
+    app.directive("altHref", [function() {
+        return {
+            restrict: "A",
+            link: function (scope, element, attrs) {
+                
+                // check
+                if (attrs.altHref && attrs.altHref !== "") {
+
+                    // create href
+                    var href = "#/";
+                    var splt = attrs.altHref.indexOf(",") > -1 ? attrs.altHref.split(",") : [attrs.altHref];
+                    if (splt.length == 1) splt[1] = "index";
+                    angular.forEach(splt, function(slug) {
+                        href += slug + "/";
+                    });
+
+                    // finally
+                    element.removeAttr("alt-href");
+                    element.removeAttr("data-alt-href");
+                    element.attr("href", href);
+                }
+            }
+        }
+    }]);
+
 
 })(alt.route);

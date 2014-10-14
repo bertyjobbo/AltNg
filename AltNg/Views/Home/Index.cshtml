@@ -14,6 +14,18 @@
     <script>
         'use strict';
         var alt = alt || {};
-        alt.homeapp = angular.module("alt.homeapp",["ng"]);
+        alt.homeapp = angular.module("alt.homeapp", ["ng", "alt.ui", "ui.bootstrap"]);
+        (function(app) {
+
+            app.run(["$rootScope", function ($rootScope) {
+                $rootScope.moduleName = "alt.homeapp";
+                $rootScope.log = function (obj, obj2) {
+                    console.log(obj, obj2);
+                }
+            }]);
+            
+            
+
+        })(alt.homeapp);
     </script>
 }

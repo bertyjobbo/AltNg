@@ -18,10 +18,28 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("home", "Index", "Home")</li>
-                <li>@Html.ActionLink("alt-view", "Index", "AltView")</li>
-                <li>@Html.ActionLink("alt-cview", "Index", "AltCView")</li>
-                <li>@Html.ActionLink("alt-ui", "Index", "AltUi")</li>
+                <li data-ng-class="{ active: moduleName == 'alt.homeapp'}">@Html.ActionLink("home", "Index", "Home")</li>
+                <li data-ng-class="{ active: moduleName == 'alt.altviewapp'}">@Html.ActionLink("alt-view", "Index", "AltView")</li>
+                <li data-ng-class="{ active: moduleName == 'alt.altcviewapp'}">@Html.ActionLink("alt-cview", "Index", "AltCView")</li>
+                @*<li data-ng-class="{ active: moduleName == 'alt.altuiapp'}" ng-show="moduleName == 'alt.altuiapp'" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        angular-ui
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a data-alt-href="example,nav">Bootstrap nav</a></li>
+                        <li><a data-alt-href="example,buttons">Bootstrap dropdown</a></li>
+                    </ul>
+                </li>
+                <li ng-show="moduleName != 'alt.altuiapp'">@Html.ActionLink("angular-ui", "Index", "AltUi")</li>*@
+                <li class="dropdown">
+                    <a href="" class="dropdown-toggle">angular-ui <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("Index","AltUi")"></a></li>
+                        <li><a href="@Url.Action("Index", "AltUi")/#/example/nav">Nav</a></li>
+                        <li><a href="@Url.Action("Index", "AltUi")/#/example/buttons">Dropdown</a></li>
+                    </ul>
+                </li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

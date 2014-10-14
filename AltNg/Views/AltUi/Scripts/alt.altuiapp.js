@@ -2,6 +2,10 @@
 
 var alt = alt || {};
 
-alt.altuiapp = angular.module("alt.altuiapp", ["ng", "alt.ui","alt.route"]);
+alt.altuiapp = angular.module("alt.altuiapp", ["ng", "alt.route","alt.ui"]);
 
-(function(app) {})(alt.altuiapp);
+(function(app) {
+    app.run(["$rootScope", function ($rootScope) {
+        $rootScope.moduleName = "alt.altuiapp";
+    }]);
+})(alt.altuiapp);
