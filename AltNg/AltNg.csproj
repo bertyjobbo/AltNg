@@ -88,8 +88,14 @@
     <Content Include="alt\alt.croute.min.js">
       <DependentUpon>alt.croute.js</DependentUpon>
     </Content>
+    <Content Include="alt\alt.ui.min.js">
+      <DependentUpon>alt.ui.js</DependentUpon>
+    </Content>
     <Content Include="Content\alt.testapp.min.css">
       <DependentUpon>alt.testapp.css</DependentUpon>
+    </Content>
+    <Content Include="Views\AltUi\Scripts\alt.altuiapp.min.js">
+      <DependentUpon>alt.altuiapp.js</DependentUpon>
     </Content>
     <Content Include="Views\AltView\Scripts\alt.altviewapp.js" />
     <Content Include="Views\AltView\Scripts\alt.testapp.min.js">
@@ -116,6 +122,18 @@
       <DependentUpon>alt.croute.min.js</DependentUpon>
     </Content>
     <Content Include="Views\AltCView\Scripts\alt.altcviewapp.js" />
+    <Content Include="Views\AltUi\Index.cshtml" />
+    <Content Include="Views\AltUi\NgView\Home\Index.cshtml" />
+    <Content Include="Views\AltUi\Scripts\alt.altuiapp.js" />
+    <Content Include="Views\AltUi\Scripts\alt.altuiapp.min.js.map">
+      <DependentUpon>alt.altuiapp.min.js</DependentUpon>
+    </Content>
+    <Content Include="alt\alt.ui.js" />
+    <Content Include="alt\alt.ui.min.js.map">
+      <DependentUpon>alt.ui.min.js</DependentUpon>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\AltUi\NgView\Example\Nav.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -156,6 +174,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AltCViewController.cs" />
+    <Compile Include="Controllers\AltUiController.cs" />
     <Compile Include="Controllers\AltViewController.cs" />
     <Compile Include="Controllers\BaseNgController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
