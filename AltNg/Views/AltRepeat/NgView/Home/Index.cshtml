@@ -1,0 +1,25 @@
+﻿@inherits System.Web.Mvc.WebViewPage
+<div class="row">
+    <div class="col-md-4">
+        <h3>alt-repeat</h3>
+        <ul style="font-size: 2px;">
+            <li data-alt-repeat="row in data">{{ row.Id }} / {{ row.Name }}</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        <h3>alt-buttload (window)</h3>        
+        <div data-alt-buttload="getScrollingData()">
+            <ul>
+                <li data-alt-repeat="row in scrollingData">{{ row.Id }} / {{ row.Name }}</li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <h3>alt-buttload (element)</h3>
+        <div data-alt-buttload="getScrollingData2()" data-alt-buttload-type="element" style="height: 400px; overflow-y: auto;">
+            <ul>
+                <li data-alt-repeat="row in scrollingData2">{{ row.Id }} / {{ row.Name }}</li>
+            </ul>
+        </div>
+    </div>
+</div>

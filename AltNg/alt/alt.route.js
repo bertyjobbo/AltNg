@@ -31,7 +31,7 @@ alt.route = angular.module("alt.route", ["ng"]);
             restrict: "A",
 
             link: function (scope, element, attrs) {
-
+                
                 // remove attr
                 element.removeAttr("data-alt-view");
                 element.removeAttr("alt-view");

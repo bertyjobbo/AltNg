@@ -1,0 +1,19 @@
+﻿@using AltNg.HtmlExtensions
+@inherits System.Web.Mvc.WebViewPage
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.NgAppName = "alt.altrepeatapp";
+    ViewBag.Title = "NgAlt - alt-repeat";
+}
+<h2>alt-repeat</h2>
+<hr />
+<section 
+    id="main" 
+    data-alt-view="'@Url.Content("~/AltRepeat/NgView")?c=' + $controller + '&amp;a=' + $action">
+</section>
+@section AfterMainScripts{
+    @*@Html.MinimizedScript("~/Scripts/ng-infinite-scroll-rj.js")*@
+    @Html.MinimizedScript("~/alt/alt.repeat.js", DateTime.Now.ToFileTimeUtc().ToString())    
+    @Html.MinimizedScript("~/Views/AltRepeat/Scripts/alt.altrepeatapp.js", DateTime.Now.ToFileTimeUtc().ToString())
+
+}

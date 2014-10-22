@@ -88,12 +88,23 @@
     <Content Include="alt\alt.croute.min.js">
       <DependentUpon>alt.croute.js</DependentUpon>
     </Content>
+    <Content Include="alt\alt.repeat.js" />
+    <Content Include="alt\alt.repeat.min.js">
+      <DependentUpon>alt.repeat.js</DependentUpon>
+    </Content>
     <Content Include="alt\alt.ui.min.js">
       <DependentUpon>alt.ui.js</DependentUpon>
     </Content>
     <Content Include="Content\alt.testapp.min.css">
       <DependentUpon>alt.testapp.css</DependentUpon>
     </Content>
+    <Content Include="Scripts\ng-infinite-scroll-rj.js" />
+    <Content Include="Scripts\ng-infinite-scroll-rj.min.js">
+      <DependentUpon>ng-infinite-scroll-rj.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ng-infinite-scroll.js" />
+    <Content Include="Scripts\ng-infinite-scroll.min.js" />
+    <Content Include="Views\AltRepeat\Scripts\alt.altrepeatapp.js" />
     <Content Include="Views\AltUi\Scripts\alt.altuiapp.min.js">
       <DependentUpon>alt.altuiapp.js</DependentUpon>
     </Content>
@@ -138,6 +149,14 @@
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js.map">
       <DependentUpon>ui-bootstrap-tpls.min.js</DependentUpon>
     </Content>
+    <Content Include="Views\AltRepeat\NgView\Home\Index.cshtml" />
+    <Content Include="Views\AltRepeat\Index.cshtml" />
+    <Content Include="alt\alt.repeat.min.js.map">
+      <DependentUpon>alt.repeat.min.js</DependentUpon>
+    </Content>
+    <Content Include="Scripts\ng-infinite-scroll-rj.min.js.map">
+      <DependentUpon>ng-infinite-scroll-rj.min.js</DependentUpon>
+    </Content>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -178,6 +197,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AltCViewController.cs" />
+    <Compile Include="Controllers\AltRepeatController.cs" />
     <Compile Include="Controllers\AltUiController.cs" />
     <Compile Include="Controllers\AltViewController.cs" />
     <Compile Include="Controllers\BaseNgController.cs" />
