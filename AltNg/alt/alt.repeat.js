@@ -538,7 +538,7 @@ alt.repeat = angular.module("alt.repeat", ["ng"]);
 
                 // check
                 var isElement = attrs.altButtloadType == "element";
-
+                
                 // busy?
                 var isBusy = false;
 
@@ -550,12 +550,12 @@ alt.repeat = angular.module("alt.repeat", ["ng"]);
                         var elToUse = isElement ? element : document.body;
                         var innerH = !isElement ? window.innerHeight : elToUse.offsetHeight;
                         var outerH = elToUse.outerHeight || elToUse.scrollHeight;
-                        var scrollT = isElement ? elToUse.scrollTop : window.scrollY;
+                        var scrollT = isElement ? elToUse.scrollTop : (window.scrollY || window.pageYOffset);
                         var isAtBottom = (innerH + scrollT) >= outerH;
                         //for (var ijij in elToUse) {
                         //    console.log("Prop " + ijij + " = ", elToUse[ijij]);
                         //}
-
+                        
                         if (isAtBottom) {
                             scope.$apply(function () {
                                 try {
